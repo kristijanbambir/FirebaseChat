@@ -18,12 +18,22 @@ class SignOut extends Component {
     return (
       <FlatButton
         label='Sign out'
+        labelStyle={{
+          color: this.context.muiTheme.appBar.textColor,
+        }}
         onTouchTap={this.handleSignOut}
+        style={{
+          marginTop: '6px',
+        }}
       />
     );
   }
 
 }
+
+SignOut.contextTypes = {
+  muiTheme: PropTypes.object.isRequired,
+};
 
 SignOut.propTypes = {
   dispatch: PropTypes.func,
