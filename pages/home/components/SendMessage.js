@@ -29,6 +29,7 @@ class SendMessage extends Component {
       name: this.props.name,
       photoUrl: this.props.photoUrl,
       text: this.state.messageValue,
+      uid: this.props.uid,
     });
     this.setState({
       messageValue: '',
@@ -78,14 +79,16 @@ SendMessage.contextTypes = {
 SendMessage.propTypes = {
   name: PropTypes.string,
   photoUrl: PropTypes.string,
+  uid: PropTypes.string,
 };
 
 const mapStateToProps = (state) => {
   const { auth } = state;
-  const { displayName: name, photoURL: photoUrl } = auth ? auth.user : {};
+  const { displayName: name, uid, photoURL: photoUrl } = auth ? auth.user : {};
   return {
     name,
     photoUrl,
+    uid,
   };
 };
 
