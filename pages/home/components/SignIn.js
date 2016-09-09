@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
-import * as firebase from 'firebase';
+import { firebaseSignIn } from '../../../core/firebase';
 
 class SignIn extends Component {
 
@@ -11,8 +11,7 @@ class SignIn extends Component {
   }
 
   handleSignIn() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithRedirect(provider);
+    firebaseSignIn();
   }
 
   render() {

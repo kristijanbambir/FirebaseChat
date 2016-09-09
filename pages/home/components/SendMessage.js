@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
 import ContentSend from 'material-ui/svg-icons/content/send';
 import Paper from 'material-ui/Paper';
-import { messagesRef } from '../../../utils/firebase';
+import { messagesRef } from '../../../core/firebase';
 
 class SendMessage extends Component {
 

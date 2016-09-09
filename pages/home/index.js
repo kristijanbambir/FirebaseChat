@@ -4,6 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import MessagesList from './components/MessagesList';
 import SendMessage from './components/SendMessage';
 import SignIn from './components/SignIn';
+import SignOut from './components/SignOut';
 
 class HomePage extends Component {
 
@@ -42,6 +43,7 @@ class HomePage extends Component {
             position: 'fixed',
           }}
           title='Friendly Chat'
+          iconElementRight={this.props.user ? <SignOut /> : null}
         />
         <div style={{ height: '64px', width: '100%' }} />
         {main}

@@ -12,9 +12,9 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import store from './core/store';
 import router from './core/router';
 import history from './core/history';
-import { setUser } from './core/actions/auth';
+import { signIn } from './core/actions/auth';
 import { receiveMessages } from './core/actions/messages';
-import { firebaseApp, messagesRef } from './utils/firebase';
+import { firebaseApp, messagesRef } from './core/firebase';
 
 let routes = require('./routes.json'); // Loaded with utils/routes-loader.js
 const container = document.getElementById('container');
@@ -83,6 +83,6 @@ firebaseApp.auth().getRedirectResult().then((result) => {
   // }
   // The signed-in user info.
   const user = result.user;
-  store.dispatch(setUser(user));
+  store.dispatch(signIn(user));
 })
 .catch((error) => this.setState({ error }));
