@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { ListItem } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 
-const Message = (props) => (
+const Message = props => (
   <ListItem
     primaryText={props.text}
     secondaryText={props.name}
@@ -14,8 +14,6 @@ const Message = (props) => (
 Message.propTypes = {
   name: PropTypes.string,
   photoUrl: PropTypes.string,
-  stayScrolled: PropTypes.func,
-  scrollDown: PropTypes.func,
   text: PropTypes.string.isRequired,
 };
 

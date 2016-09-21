@@ -84,7 +84,7 @@ SendMessage.propTypes = {
 
 const mapStateToProps = (state) => {
   const { auth } = state;
-  const { displayName: name, uid, photoURL: photoUrl } = auth ? auth.user : {};
+  const { displayName: name, uid, photoURL: photoUrl } = auth && auth.user ? auth.user : {};
   return {
     name,
     photoUrl,

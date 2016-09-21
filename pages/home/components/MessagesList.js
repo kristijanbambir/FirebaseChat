@@ -51,7 +51,7 @@ class MessagesList extends Component {
 }
 
 MessagesList.propTypes = {
-  messages: PropTypes.array.isRequired,
+  messages: PropTypes.arrayOf(React.PropTypes.object).isRequired,
 };
 
 const mapStateToProps = (state) => {

@@ -17,7 +17,6 @@ import { receiveMessages } from './core/actions/messages';
 import { firebaseApp, messagesRef } from './core/firebase';
 
 let routes = require('./routes.json'); // Loaded with utils/routes-loader.js
-const container = document.getElementById('container');
 
 const muiTheme = getMuiTheme({});
 
@@ -28,7 +27,7 @@ function renderComponent(component) {
         {component}
       </Provider>
     </MuiThemeProvider>,
-    container
+    document.getElementById('container')
   );
 }
 
@@ -54,6 +53,7 @@ FastClick.attach(document.body);
 if (module.hot) {
   module.hot.accept('./routes.json', () => {
     routes = require('./routes.json'); // eslint-disable-line global-require
+
     render(history.getCurrentLocation());
   });
 }
@@ -83,6 +83,8 @@ firebaseApp.auth().getRedirectResult().then((result) => {
   // }
   // The signed-in user info.
   const user = result.user;
-  store.dispatch(signIn(user));
+  if (user) {
+    store.dispatch(signIn(user));
+  }
 })
-.catch((error) => this.setState({ error }));
+.catch(error => console.log('Error on auth redirect result: ', error));

@@ -20,6 +20,6 @@ export const firebaseSignIn = () => {
 export const firebaseSignOut = () => {
   firebase.auth().signOut().then(
     () => store.dispatch(signOut()),
-    (error) => console.log('Error signing out:', error) // eslint-disable-line  no-console
+    error => console.log('Error signing out:', error) // eslint-disable-line  no-console
   );
 };
